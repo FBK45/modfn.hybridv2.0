@@ -221,7 +221,9 @@ app.post(
                 break;
 
             case 'ClientQuestLogin':
-            case 'QueryProfile':
+           case 'QueryProfile':
+            case 'ClaimMfaEnabled':
+           case 'VerifyRealMoneyPurchase':
                 switch (profileId) {
 
                     case 'collections':
@@ -266,14 +268,6 @@ app.post(
                     );
                     break;
                 };
-                break;
-
-            case 'SetMtxPlatform':
-                res.json(createResponse([{
-                    'changeType': 'statModified',
-                    'name': 'current_mtx_platform',
-                    'value': req.body.platform
-                }], profileId, rvn));
                 break;
 
             case 'VerifyRealMoneyPurchase':
